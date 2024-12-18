@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>寻宝游戏</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg'); /* 背景图片 */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  #gameContainer {
+    text-align: center;
+  }
+  #playerInfo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .gameElement {
+    position: absolute;
+    width: 200px; /* 图片宽度调整为200px */
+    height: 200px; /* 图片高度调整为200px */
+    border: 2px solid #fff; /* 添加边框以突出图片 */
+    border-radius: 5px; /* 圆角边框 */
+    overflow: hidden; /* 防止描述文本溢出 */
+  }
+  .gameElement p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* 添加黑色半透明背景 */
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 0 0 5px 5px; /* 底部圆角 */
+  }
+  #library {
+    background: url('library.png') no-repeat center center;
+    background-size: contain;
+    top: 50px;
+    left: 50px;
+  }
+  #temple {
+    background: url('temple.png') no-repeat center center;
+    background-size: contain;
+    top: 300px; /* 调整位置 */
+    left: 50%;
+    transform: translateX(-50%); /* 居中 */
+  }
+  #guard {
+    background: url('guard.png') no-repeat center center;
+    background-size: contain;
+    top: 550px; /* 调整位置 */
+    left: 50%;
+    transform: translateX(-50%); /* 居中 */
+  }
+</style>
+</head>
+<body>
+<div id="gameContainer">
+  <div id="playerInfo">
+    <p>玩家ID: <span id="playerId">12345</span></p>
+    <p>昵称: <span id="nickname">探险家</span></p>
+    <p>游戏历史: <span id="gameHistory">未开始</span></p>
+  </div>
+  <div id="library" class="gameElement">
+    <p>图书馆 - 知识的宝库</p>
+  </div>
+  <div id="temple" class="gameElement">
+    <p>神庙 - 古老的神秘</p>
+  </div>
+  <div id="guard" class="gameElement">
+    <p>守卫 - 严密的守护者</p>
+  </div>
+</div>
+<audio id="bgMusic" loop>
+  <source src="background-music.mp3" type="audio/mpeg">
+  您的浏览器不支持音频元素。
+</audio>
+
+<script>
+  // 播放背景音乐
+  document.getElementById('bgMusic').play();
+
+  // 示例：更新玩家信息
+  function updatePlayerInfo(playerId, nickname, gameHistory) {
+    document.getElementById('playerId').textContent = playerId;
+    document.getElementById('nickname').textContent = nickname;
+    document.getElementById('gameHistory').textContent = gameHistory;
+  }
+
+  // 假设这是从服务器获取的玩家信息
+  updatePlayerInfo('67890', '勇敢的心', '已完成3个任务');
+</script>
+</body>
+</html>
